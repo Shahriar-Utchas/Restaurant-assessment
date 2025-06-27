@@ -61,15 +61,18 @@ export default function Foods() {
             : foods.filter((f) => f.category === selectedCategory);
 
     const handleFoodChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-        const { name, value, files } = e.target;
-        if (name === "imageFile") {
+        const { name, value } = e.target;
+        const files = (e.target as HTMLInputElement).files;
+
+        if (name === "imageFile" && files && files.length > 0) {
             setNewFood((prev) => ({ ...prev, imageFile: files[0] }));
         } else {
             setNewFood((prev) => ({ ...prev, [name]: value }));
         }
     };
 
-    const handleFoodSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+
+    const handleFoodSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("name", newFood.name);
@@ -89,6 +92,7 @@ export default function Foods() {
             toast.error("Failed to add food");
         }
     };
+
 
     const handleCategorySubmit = async (e) => {
         e.preventDefault();
