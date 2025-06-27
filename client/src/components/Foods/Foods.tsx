@@ -337,7 +337,7 @@ export default function Foods() {
                                     className="flex-1 py-3 rounded-full bg-red-600 hover:bg-red-700 transition font-semibold disabled:opacity-60"
                                     disabled={isCreatingFood}
                                 >
-                                    {isCreatingFood ? "Saving..." : "Save"}
+                                    {isCreatingCategory ? "Saving..." : "Save"}
                                 </button>
 
                             </div>
