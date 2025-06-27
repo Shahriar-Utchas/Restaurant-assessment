@@ -150,8 +150,9 @@ export default function Banner() {
                 <div className="text-white w-full md:w-1/2">
                     <h1 className="text-5xl md:text-7xl font-bold mb-6">BREAKFAST</h1>
                     <p className="text-base md:text-lg font-medium text-white/90 leading-relaxed mb-10 w-[95%] md:w-4/5">
-                        Breakfast, often referred to as the ‘most important meal of the day’, provides essential nutrients to kick start our day. It includes a variety of foods, like fruits, cereals, dairy products, and proteins, that contribute to a balanced diet.
+                        Breakfast, often referred to as the &apos;most important meal of the day&apos;, provides essential nutrients to kick start our day. It includes a variety of foods, like fruits, cereals, dairy products, and proteins, that contribute to a balanced diet.
                     </p>
+
 
                     {/* Thumbnails */}
                     <div className="flex items-center gap-4">
