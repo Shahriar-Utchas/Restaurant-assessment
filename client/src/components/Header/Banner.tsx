@@ -137,7 +137,7 @@ export default function Banner() {
                             </div>
                         ) : (
                             <div className="absolute top-full left-0 w-full mt-2 bg-white rounded-lg shadow-lg z-40 p-4 text-center text-gray-500">
-                                No items found for "{searchTerm}"
+                                No items found for &apos;{searchTerm}&apos;
                             </div>
                         )
                     )}
