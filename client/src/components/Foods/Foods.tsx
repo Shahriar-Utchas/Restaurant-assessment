@@ -27,8 +27,8 @@ export default function Foods() {
       try {
         setLoading(true);
         const [foodsRes, categoriesRes] = await Promise.all([
-          axios.get("http://localhost:4000/foods"),
-          axios.get("http://localhost:4000/categories"),
+          axios.get("https://antopolis-restaurant-server-shahria.vercel.app/foods"),
+          axios.get("https://antopolis-restaurant-server-shahria.vercel.app/categories"),
         ]);
         setFoods(foodsRes.data);
         setCategories(categoriesRes.data);
@@ -65,12 +65,12 @@ export default function Foods() {
     if (newFood.imageFile) formData.append("image", newFood.imageFile);
 
     try {
-      await axios.post("http://localhost:4000/foods", formData);
+      await axios.post("https://antopolis-restaurant-server-shahria.vercel.app/foods", formData);
       toast.success("Food added successfully");
       setShowFoodModal(false);
       setNewFood({ name: "", category: "", price: "", imageFile: null });
       setLoading(true);
-      const res = await axios.get("http://localhost:4000/foods");
+      const res = await axios.get("https://antopolis-restaurant-server-shahria.vercel.app/foods");
       setFoods(res.data);
     } catch {
       toast.error("Failed to add food");
@@ -81,12 +81,12 @@ export default function Foods() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:4000/categories", { name: newCategory });
+      await axios.post("https://antopolis-restaurant-server-shahria.vercel.app/categories", { name: newCategory });
       toast.success("Category added successfully");
       setShowCategoryModal(false);
       setNewCategory("");
       setLoading(true);
-      const res = await axios.get("http://localhost:4000/categories");
+      const res = await axios.get("https://antopolis-restaurant-server-shahria.vercel.app/categories");
       setCategories(res.data);
     } catch {
       toast.error("Failed to add category");

@@ -28,7 +28,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
+    // await client.connect();
 
     const database = client.db("Antopolis-restaurant");
     const FoodCollection = database.collection("Foods");
@@ -96,8 +96,8 @@ async function run() {
     });
 
     // Ping DB to confirm connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Connected to MongoDB!");
+    // await client.db("admin").command({ ping: 1 });
+    // console.log("Connected to MongoDB!");
   } catch (err) {
     console.error(err);
   }
