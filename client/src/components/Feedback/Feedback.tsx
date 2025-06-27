@@ -79,7 +79,7 @@ export default function Feedback() {
                                 <button
                                     key={idx}
                                     onClick={() => setActiveIndex(idx)}
-                                    className={`h-3 rounded-full transition-all duration-300 ${activeIndex === idx ? "w-3 bg-[#8B0000]" : "w-3 bg-gray-300"
+                                    className={`h-3 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx ? "w-3 bg-[#8B0000]" : "w-3 bg-gray-300"
                                         }`}
                                 />
                             ))}
