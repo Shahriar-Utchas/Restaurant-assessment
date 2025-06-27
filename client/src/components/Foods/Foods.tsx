@@ -265,9 +265,10 @@ export default function Foods() {
                             {/* Image Upload */}
                             <label
                                 htmlFor="imageFile"
-                                className="block w-full text-center px-4 py-6 border-2 border-dashed border-red-500 text-red-400 rounded-full cursor-pointer hover:bg-red-500 hover:text-white transition"
+                                className={`block w-full text-center px-4 py-6 border-2 border-dashed rounded-full cursor-pointer transition
+    ${newFood.imageFile ? "border-green-500 text-green-400 hover:bg-green-500 hover:text-white" : "border-red-500 text-red-400 hover:bg-red-500 hover:text-white"}`}
                             >
-                                Upload or Drag image here
+                                {newFood.imageFile ? newFood.imageFile.name : "Upload or Drag image here"}
                                 <input
                                     id="imageFile"
                                     type="file"
@@ -277,6 +278,7 @@ export default function Foods() {
                                     className="hidden"
                                 />
                             </label>
+
 
                             {/* Buttons */}
                             <div className="flex justify-between gap-4 pt-2">
