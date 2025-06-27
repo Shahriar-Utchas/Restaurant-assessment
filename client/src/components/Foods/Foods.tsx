@@ -60,7 +60,7 @@ export default function Foods() {
             ? foods
             : foods.filter((f) => f.category === selectedCategory);
 
-    const handleFoodChange = (e) => {
+    const handleFoodChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value, files } = e.target;
         if (name === "imageFile") {
             setNewFood((prev) => ({ ...prev, imageFile: files[0] }));
@@ -69,7 +69,7 @@ export default function Foods() {
         }
     };
 
-    const handleFoodSubmit = async (e) => {
+    const handleFoodSubmit = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("name", newFood.name);
