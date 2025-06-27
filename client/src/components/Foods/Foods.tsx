@@ -14,7 +14,7 @@ const fakeFoods = [
 
 const categories = ['All', 'Breakfast', 'Lunch', 'Dinner'];
 
-const Foods = () => {
+ export default function Foods() {
     const [selectedCategory, setSelectedCategory] = useState('All');
 
     const filteredFoods =
@@ -24,7 +24,7 @@ const Foods = () => {
 
     return (
         <section className="py-10">
-            <div className="max-w-screen-xl px-4 sm:px-10 lg:px-40 mx-auto">
+            <div className=" px-4 sm:px-10 lg:px-40 mx-auto">
                 {/* Header */}
                 <h2 className="text-4xl font-bold text-center mb-2">Our best Seller Dishes</h2>
                 <p className="text-center text-gray-500 mb-8 max-w-2xl mx-auto">
@@ -92,4 +92,3 @@ const Foods = () => {
     );
 };
 
-export default Foods;

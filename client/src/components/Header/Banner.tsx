@@ -32,7 +32,7 @@ const imageData = [
     },
 ];
 
-const Banner = () => {
+export default function Banner() {
     const [currentImage, setCurrentImage] = useState(1);
     const prevImageRef = useRef(currentImage);
 
@@ -43,10 +43,12 @@ const Banner = () => {
     const isForward = currentImage > prevImageRef.current;
 
     return (
-        <div
-            className="h-screen w-screen overflow-hidden relative transition-colors duration-500"
-            style={{ backgroundColor: imageData[currentImage - 1].background_color }}
-        >
+       <div
+  className="h-screen overflow-hidden overflow-x-hidden relative transition-colors duration-500"
+  style={{ backgroundColor: imageData[currentImage - 1].background_color }}
+>
+
+
             {/* Background Blobs */}
             <div
                 className="absolute top-0 left-0 w-[55vw] h-[50vw] rounded-full -translate-x-[30%] -translate-y-[30%] transition-colors duration-500"
@@ -181,4 +183,3 @@ const Banner = () => {
     );
 };
 
-export default Banner;

@@ -7,11 +7,13 @@ import TeamMember from "@/components/TeamMember/TeamMember";
 export default function Home() {
   return (
     <>
+    <div className="overflow-x-hidden">
       <Banner />
       <Foods />
       <Feedback />
       <TeamMember />
       <Partner />
+      </div>
     </>
   );
 }
