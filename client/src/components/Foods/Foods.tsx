@@ -26,6 +26,9 @@ export default function Foods() {
 
     const [showFoodModal, setShowFoodModal] = useState(false);
     const [showCategoryModal, setShowCategoryModal] = useState(false);
+    const [isCreatingFood, setIsCreatingFood] = useState(false);
+    const [isCreatingCategory, setIsCreatingCategory] = useState(false);
+
 
     const [newFood, setNewFood] = useState < {
         name: string;
@@ -79,6 +82,7 @@ export default function Foods() {
 
     const handleFoodSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsCreatingFood(true);
         const formData = new FormData();
         formData.append("name", newFood.name);
         formData.append("category", newFood.category);
@@ -90,18 +94,19 @@ export default function Foods() {
             toast.success("Food added successfully");
             setShowFoodModal(false);
             setNewFood({ name: "", category: "", price: "", imageFile: null });
-            setLoading(true);
             const res = await axios.get("https://antopolis-restaurant-server-shahria.vercel.app/foods");
             setFoods(res.data);
-            setLoading(false);
         } catch {
             toast.error("Failed to add food");
-            setLoading(false);
+        } finally {
+            setIsCreatingFood(false);
         }
     };
 
+
     const handleCategorySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsCreatingCategory(true);
 
         try {
             await axios.post("https://antopolis-restaurant-server-shahria.vercel.app/categories", {
@@ -110,17 +115,15 @@ export default function Foods() {
             toast.success("Category added successfully");
             setShowCategoryModal(false);
             setNewCategory("");
-            setLoading(true);
             const res = await axios.get("https://antopolis-restaurant-server-shahria.vercel.app/categories");
             setCategories(res.data);
-            setLoading(false);
         } catch {
             toast.error("Failed to add category");
         } finally {
-            setLoading(false);
-
+            setIsCreatingCategory(false);
         }
     };
+
 
     return (
         <section className="py-10">
@@ -291,10 +294,12 @@ export default function Foods() {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="flex-1 py-3 rounded-full bg-red-600 hover:bg-red-700 transition font-semibold"
+                                    className="flex-1 py-3 rounded-full bg-red-600 hover:bg-red-700 transition font-semibold disabled:opacity-60"
+                                    disabled={isCreatingFood}
                                 >
-                                    Save
+                                    {isCreatingFood ? "Saving..." : "Save"}
                                 </button>
+
                             </div>
                         </form>
                     </div>
@@ -329,10 +334,12 @@ export default function Foods() {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="flex-1 py-3 rounded-full bg-red-600 hover:bg-red-700 transition font-semibold"
+                                    className="flex-1 py-3 rounded-full bg-red-600 hover:bg-red-700 transition font-semibold disabled:opacity-60"
+                                    disabled={isCreatingFood}
                                 >
-                                    Save
+                                    {isCreatingFood ? "Saving..." : "Save"}
                                 </button>
+
                             </div>
                         </form>
                     </div>
